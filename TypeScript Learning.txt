@@ -1,0 +1,16 @@
+
+2020.10.26  1.37 am
+1. extension of TypeScript document is .ts
+
+2. install TypeScript: npm install -g typescript
+
+    version：  tsc -v
+
+3. tsc test.ts   ---> generate test.js
+
+4. tsc -init ---->generate tsconfig,json
+
+5. Modify "outDir": "./js"   in VSCode, Terminal  -->Run Task--->TypeScript-->tsc:watch-tsconfig.json 
+    As long as .ts is modified, .js document in js fold could be modified and compiled to .js document. 
+----------------------------------------------------------------------------------------------------------
+2020.10.26
