@@ -12,5 +12,97 @@
 
 5. Modify "outDir": "./js"   in VSCode, Terminal  -->Run Task--->TypeScript-->tsc:watch-tsconfig.json 
     As long as .ts is modified, .js document in js fold could be modified and compiled to .js document. 
+
+or   tsc test --watch  , generate a .js doc in the same folder.
 ----------------------------------------------------------------------------------------------------------
 2020.10.26
+
+1. variable declaration
+let a;
+a=10;
+a=true;      //ok
+
+let b=20;
+b= true     //wrong, true cannot be assigned to b
+
+let multipleType: number | boolean;
+multipleType=20;
+multipleType=true;      //ok
+
+let anyType:any;
+anyType=20;
+anyType=true;  //ok
+
+2. function
+
+function add(num1:number,num2:number):number{
+    return num1+num2;
+}
+console.log(add(23,5))
+
+function add(num1:number,num2?:number):number{
+    if(num2)   //if mnum2 is not null, is a number
+        return num1+num2;
+    else
+        return num1
+}
+console.log(add(3))
+
+
+function FullName(person:{firstName:string, lastName:string}){
+    console.log(person.firstName,person.lastName);
+}
+
+let p = {
+    firstName: 'Felix',
+    lastName: 'Wang'
+};
+FullName(p)
+
+3. Interface
+interface Person{
+    firstName:string;
+    lastName:string;
+}
+
+function FullName(person:Person){
+    console.log(person.firstName,person.lastName);
+}
+
+let p = {
+    firstName: 'Felix',
+    lastName: 'Wang'
+};
+FullName(p)
+
+
+4. Class
+
+class Employee {
+    employeeName:string;
+    constructor(name:string){
+        this.employeeName=name;
+    }
+    greet(){
+        console.log('Good morning,',this.employeeName)
+    }
+}
+
+let emp1=new Employee("Sherry");
+console.log(emp1.employeeName);
+emp1.greet();
+
+class Manager extends Employee{
+    constructor(managerName:string){
+        super(managerName);
+    }
+    delegateWork(){
+        console.log('Manager delegate tasks');
+    }
+}
+let mag1=new Manager("Felix");
+mag1.delegateWork();
+mag1.greet();
+console.log(mag1.employeeName);
+
+
