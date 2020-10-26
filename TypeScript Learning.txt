@@ -15,7 +15,7 @@
 
 or   tsc test --watch  , generate a .js doc in the same folder.
 ----------------------------------------------------------------------------------------------------------
-2020.10.26
+2020.10.27 1.57am
 
 1. variable declaration
 let a;
@@ -40,7 +40,7 @@ function add(num1:number,num2:number):number{
 }
 console.log(add(23,5))
 
-function add(num1:number,num2?:number):number{
+function add(num1:number,num2?:number):number{     // ? means optional parameter
     if(num2)   //if mnum2 is not null, is a number
         return num1+num2;
     else
@@ -105,4 +105,11 @@ mag1.delegateWork();
 mag1.greet();
 console.log(mag1.employeeName);
 
+5.array
+
+// foreach the array
+let colors: string[]=["red","white","green"];
+for(let i of colors){
+console.log(i);
+}
 
