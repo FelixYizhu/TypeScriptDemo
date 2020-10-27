@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <script>
+
+//class in ES5, the class includes the property and function 
+            function Person(){
+                this.name="zhangsan";  //property
+                this.age=20;
+
+                 this.run=function(){    //method
+                     alert(this.name+' is running');
+                 }
+            }
+            //extend the class prototype, add the new property or new function
+            Person.prototype.sex='male'    //propotype chain
+            Person.prototype.work=function(){
+                alert(this.name+' is working');
+            }
+            Person.getInfo=function(){
+                 alert('this is a static function');
+            }
+            var p=new Person();
+            p.run();
+            p.work();
+            //invoke static function
+            Person.getInfo();
+
+            function Web(){
+                Person.call(this);  //  Person.call() to fulfill that web class can inherit the function and property of Person class
+            }
+            var w=new Web();
+            alert(w.run());   //web can inherit the function of Person class
+            //alert(w.work());// error. web cannot inherit the function of propotype chain
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
