@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -110,19 +109,91 @@ function getInfo(name, age) {
 }
 console.log(getInfo('Felix', 18));
 //Person class  include properties and constructor,  get,set    OOP
+var Person1 = /** @class */ (function () {
+    function Person1(name1) {
+        this.name1 = name1;
+    }
+    Person1.prototype.getName = function () {
+        return this.name1;
+    };
+    Person1.prototype.setName = function (name1) {
+        this.name1 = name1;
+    };
+    return Person1;
+}());
+var per = new Person1("Sherry");
+console.log('My name is: ' + per.getName());
+per.setName('Tom');
+console.log('My name is: ' + per.getName());
+//class and inherit
 var Person = /** @class */ (function () {
     function Person(name) {
         this.name = name;
     }
-    Person.prototype.getName = function () {
-        return this.name;
+    Person.prototype.run1 = function () {
+        return this.name + ' is running';
     };
-    Person.prototype.setName = function (name) {
-        this.name = name;
+    Person.run2 = function () {
+        return this.age;
     };
     return Person;
 }());
-var per = new Person("Sherry");
-console.log('My name is: ' + per.getName());
-per.setName('Tom');
-console.log('My name is: ' + per.getName());
+var Web = /** @class */ (function (_super) {
+    __extends(Web, _super);
+    function Web(name) {
+        return _super.call(this, name) || this;
+    }
+    return Web;
+}(Person));
+var m = new Web("Wang");
+m.run1();
+console.log(m.run1());
+/*abstract class and abstract method
+abstract class cannot be instanced.
+abstract method is only in abstract class.
+abstract method does not include detailed implementation.
+The child class must implement the abstract method in abstract class.
+*/
+var Animal = /** @class */ (function () {
+    function Animal(title) {
+        this.title = title;
+    }
+    return Animal;
+}());
+var Dog = /** @class */ (function (_super) {
+    __extends(Dog, _super);
+    function Dog(title) {
+        return _super.call(this, title) || this;
+    }
+    Dog.prototype.eat = function () {
+        return this.title + ' eat e';
+    };
+    return Dog;
+}(Animal));
+var v = new Dog('Peggy');
+console.log(v.eat());
+function printName(name) {
+    console.log(name.firstName + ' and ' + name.lastName);
+}
+printName({ firstName: 'Felix', lastName: 'wang' });
+function ajax(config) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(config.type, config.url, true);
+    xhr.send(config.data);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log('success');
+            if (config.datatype == 'json') {
+                JSON.parse(xhr.responseText);
+            }
+            else {
+                console.log(xhr.responseText);
+            }
+        }
+    };
+}
+ajax({
+    type: 'get',
+    url: 'http://a.itying.com/api/productlist',
+    datatype: 'json'
+});
