@@ -242,3 +242,23 @@ export {dbUrl,getDbData,save}    //  another way to export
 
 export default getDbData  // only one export default
 import getDbData from './modules/db'
+-----------------------------
+
+namespace
+
+one module can include many namespaces.
+
+//decorator   can extend the methods and properties of the class
+function decoratorName(params:any){
+    console.log(params);
+    params.prototype.apiUrl='xxxx';
+}
+
+@decoratorName
+class HttpClient2{
+    constructor(){}
+    getData2(){};
+}
+
+var http:any=new HttpClient2();
+console.log(http.apiUrl);
