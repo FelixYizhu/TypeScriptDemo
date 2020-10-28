@@ -58,7 +58,6 @@ let p = {
     firstName: 'Felix',
     lastName: 'Wang'
 };
-FullName(p)
 
 
 //define class
@@ -364,3 +363,57 @@ class HttpClient2{
 
 var http:any=new HttpClient2();
 console.log(http.apiUrl);
+
+
+
+//class decorator
+
+function logClass(target:any){
+    console.log(target);
+    return class extends target{
+        apiUrl:any='I am the apiUrl in decorator';
+        getData3(){
+            this.apiUrl=this.apiUrl+'....';
+            console.log(this.apiUrl);
+        }
+    }
+}
+
+@logClass
+class httpClient3{
+    public apiUrl:string|undefined;
+    constructor(){
+        this.apiUrl='I am the apiUrl of constructor';
+    }
+    getData3(){
+        console.log(this.apiUrl);
+    }
+}
+
+var htt=new httpClient3();
+htt.getData3();
+
+
+
+//property decorator
+
+function logProperty(params:any){
+    return function(target:any,attr:any){
+        console.log(target);
+        console.log(attr);
+        target[attr]=params;
+    }
+}
+
+class httpClient4{
+    @logProperty("http://seek.com.au")
+    public url:string|undefined;
+    constructor(){
+    }
+    getData4(){
+        console.log(this.url);
+    }
+}
+
+var http4=new httpClient4();
+http4.getData4();
