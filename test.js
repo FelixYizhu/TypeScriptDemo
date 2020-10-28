@@ -176,24 +176,81 @@ function printName(name) {
     console.log(name.firstName + ' and ' + name.lastName);
 }
 printName({ firstName: 'Felix', lastName: 'wang' });
-function ajax(config) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(config.type, config.url, true);
+/*
+interface Config{
+    type:string,
+    url:string,
+    data?:string,
+    datatype:string
+}
+
+function ajax(config:Config){
+    var xhr=new XMLHttpRequest();
+    xhr.open(config.type,config.url,true);
     xhr.send(config.data);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+    xhr.onreadystatechange= function(){
+        if(xhr.readyState==4 && xhr.status==200){
             console.log('success');
-            if (config.datatype == 'json') {
+            if(config.datatype=='json'){
                 JSON.parse(xhr.responseText);
             }
-            else {
+            else{
                 console.log(xhr.responseText);
             }
         }
-    };
+    }
 }
+
 ajax({
-    type: 'get',
-    url: 'http://a.itying.com/api/productlist',
-    datatype: 'json'
-});
+    type:'get',
+    url:'http://a.itying.com/api/productlist',
+    datatype:'json'
+
+})
+
+*/
+/*Generics
+solve the reusability of class, function, interface etc.
+Generics can support unspecific data type, but the return parameters should be consistant with input parameters
+*/
+// T stands for Generics
+function getData(value) {
+    return value;
+}
+getData(123);
+console.log(getData(123));
+//Generics class
+var MinClass = /** @class */ (function () {
+    function MinClass() {
+        this.list = [];
+    }
+    MinClass.prototype.add = function (value) {
+        this.list.push(value);
+    };
+    MinClass.prototype.Min = function () {
+        var min = this.list[0];
+        for (var i = 0; i < this.list.length; i++) {
+            if (min > this.list[i]) {
+                min = this.list[i];
+            }
+        }
+        return min;
+    };
+    return MinClass;
+}());
+var m1 = new MinClass();
+m1.add(4);
+m1.add(7);
+m1.add(3);
+console.log(m1.Min());
+var m2 = new MinClass();
+m2.add('b');
+m2.add('g');
+m2.add('r');
+console.log(m2.Min());
+function getData2(value) {
+    return value;
+}
+var myGetData = getData2;
+myGetData('ser');
+console.log(myGetData('ser'));

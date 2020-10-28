@@ -200,11 +200,11 @@ function printName(name:FullName):void{
 printName({firstName:'Felix', lastName:'wang'});
 
 
-
+/*
 interface Config{
-    type:string;
-    url:string;
-    data?:string;
+    type:string,
+    url:string,
+    data?:string,
     datatype:string
 }
 
@@ -231,3 +231,63 @@ ajax({
     datatype:'json'
 
 })
+
+*/
+/*Generics
+solve the reusability of class, function, interface etc.
+Generics can support unspecific data type, but the return parameters should be consistant with input parameters
+*/
+// T stands for Generics
+
+function getData<T> (value:T):T{
+    return value;
+}
+
+getData<number>(123);
+console.log(getData<number>(123));
+
+
+//Generics class
+
+class MinClass<T>{
+    public list:T[]=[];
+    add(value:T):void{
+        this.list.push(value);
+    }
+
+    Min():T{
+        var min=this.list[0];
+        for(var i=0;i<this.list.length;i++){
+            if(min>this.list[i]){
+                min=this.list[i];
+            }
+        }
+        return min;
+    }
+}
+ var m1=new MinClass<Number>();
+ m1.add(4);
+ m1.add(7);
+ m1.add(3);
+ console.log(m1.Min());
+
+ var m2=new MinClass<string>();
+ m2.add('b');
+ m2.add('g');
+ m2.add('r');
+ console.log(m2.Min());
+
+
+ //interface Generics
+interface ConfigFn<T>{
+    (value:T):T;
+    
+}
+
+function getData2<T>(value:T):T{
+    return value;
+}
+var myGetData:ConfigFn<string>=getData2;
+
+myGetData('ser');
+console.log(myGetData('ser'));
