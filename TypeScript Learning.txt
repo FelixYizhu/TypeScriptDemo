@@ -170,7 +170,7 @@ solve the reusability of class, function, interface etc.
 Generics can support unspecific data type, but the return parameters should be consistant with input parameters
 //T stands for Generics
 
-//Generics class
+//Generics class      add <T> behind the class name 
 
 class MinClass<T>{
     public list:T[]=[];
@@ -213,3 +213,32 @@ var myGetData:ConfigFn<string>=getData2;
 
 myGetData('ser');
 console.log(myGetData('ser'));
+--------------------------------------
+module
+
+use export, if some files import it, the methods can be used
+
+
+export var dbUrl='xxxx'    //export the variable
+export function getDbData():any[]{
+    console.log('get data from DB');
+    return[
+        {title:'123'},
+        {type:'345'}
+    ]
+}
+export function save(){
+    console.log('save successfully');
+}
+
+
+use import 
+import { getDbData, save } from './modules/db'
+import { getDbData as getD, save } from './modules/db'   // use as to short the name
+getDbData();
+save();
+
+export {dbUrl,getDbData,save}    //  another way to export
+
+export default getDbData  // only one export default
+import getDbData from './modules/db'

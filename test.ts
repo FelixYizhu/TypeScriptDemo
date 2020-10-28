@@ -291,3 +291,60 @@ var myGetData:ConfigFn<string>=getData2;
 
 myGetData('ser');
 console.log(myGetData('ser'));
+
+
+
+/*
+class User{
+    username:string|undefined;
+    password:string|undefined;
+}
+
+class MySqlDb{
+
+    add(user:User):boolean{
+        console.log(user.username+'--'+user.password);
+        if(user.username!=null ||user.username!=undefined)
+            return true;
+        else
+            return false;
+    }
+}
+
+var user=new User();
+user.username='Bob';
+user.password='12345';
+var sql=new MySqlDb();
+sql.add(user);
+*/
+
+
+class MySqlDb<T>{
+
+    add(info:T):boolean{
+        console.log(info);
+        if(user.username!=null ||user.username!=undefined)
+            return true;
+        else
+            return false;
+    }
+}
+class User{
+    username:string|undefined;
+    password:string|undefined;
+}
+
+var user=new User();
+user.username='Bob';
+user.password='12345';
+var sql=new MySqlDb<User>();
+sql.add(user);
+
+
+
+
+import { getDbData as getD, save } from './modules/db'
+
+getD();
+console.log(getD());
+save();
