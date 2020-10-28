@@ -316,7 +316,7 @@ class httpClient4{
 //property decorator
 
 function logProperty(params:any){
-    return function(target:any,attr:any){
+    return function(target:any,attr:any){  //two parameters
         console.log(target);
         console.log(attr);
         target[attr]=params;
@@ -335,3 +335,6 @@ class httpClient4{
 
 var http4=new httpClient4();
 http4.getData4();
+
+
+decorator run order: property>method>class
