@@ -348,3 +348,19 @@ import { getDbData as getD, save } from './modules/db'
 getD();
 console.log(getD());
 save();
+
+
+//decorator   can extend the methods and properties of the class
+function decoratorName(params:any){
+    console.log(params);
+    params.prototype.apiUrl='xxxx';
+}
+
+@decoratorName
+class HttpClient2{
+    constructor(){}
+    getData2(){};
+}
+
+var http:any=new HttpClient2();
+console.log(http.apiUrl);
