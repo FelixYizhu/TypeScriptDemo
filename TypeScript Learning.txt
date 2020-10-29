@@ -346,3 +346,121 @@ decorator run order: property>method>class
 npm i -g ts-node   install ts-node 
 
 ts-node test.ts
+
+
+ctrl+/      annotation ofr single line
+
+shift+alt+a   annotation of multiple lines 
+
+
+type cls to clear terminal info list
+
+----------------------------------------
+variable
+variable  declaration by keyword let
+
+let age:number=0;
+age=18;
+console.log(age);
+
+variable name rules: number ,letter, _,$, and not start with number.
+
+letter: case sensitive ,so age and Age are two different variables.
+
+camelCase:   cityName, studentNumber
+
+-------------------------------
+
+data type
+
+1. primitive types(basic data types)
+number  (include integer and float,positive,negative)
+string
+boolean
+undefined  has only one value which is also itself: undefined
+null has only one value which is also itself: null
+
+undefined means that a variable has been declared but no value
+
+null means that a variable has been declared and the value is null
+
+2. object types(complex data types)
+
+--------------------------------------------
+operator
+
+assignment operator: assign the value of right to the variable of left
+=   age=18;
+age=age+1   first perform the right part, and then the left
++=   age+=1    ==>age=age+1
+-=    age-=1   ==>age=age-1
+*=
+/=
+
+Arithmetic operator
+
++-*/
+
++ can also be used for string concetenation. 'he is a'+' student'
+console.log(1+'2')//12    console.log('1'+2) //12
+console.log(2-+'1')//1
+
+comparison operator
+the result is boolean, true or false
+>
+<
+>=
+<=
+!==
+===
+
+increment/decrement operator
+++  => +=1
+--  => -=1
+
+age++   =>age+=1
+
+logical operator
+
+and    &&    value of both sides are true at the same time, the result is true, or it is false
+or     ||    any value of both sides is true, the result is true
+nor    !     the opposite result, false->true, true->false
+
+
+true && false  //false
+console.log(2>1 && 2>=2)  //true
+
+
+true|| false   //true
+console.log(3<2 ||1<=2) // true
+
+console.log(!true)  //false
+console.log(!false||false)  //true
+-------------------------------------------------
+
+statements
+
+conditional statement   if(){}  else{}
+
+ternary operator  condition?value1:value2   if condition is true, value is value1, otherwise value is value2
+console.log(5>3?6:5);   //6  
+
+loop statement
+
+for loop
+
+for(initialize statement(only perform once);judge the condition;counter update){
+    loop body
+}
+
+first enter into the loop body ,and then perform counter update
+for(let count:number =1;count<5;count++){
+    console.log('I love you');
+}
+if counter=1, then console.log, and then, count++
+
+breakpoint debugging 
+
+
+
+
