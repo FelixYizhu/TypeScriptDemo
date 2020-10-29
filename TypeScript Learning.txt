@@ -338,3 +338,11 @@ http4.getData4();
 
 
 decorator run order: property>method>class
+
+
+-------------------------
+2020.10.30 0.54 am
+
+npm i -g ts-node   install ts-node 
+
+ts-node test.ts
