@@ -1,1 +1,74 @@
-as
+!  then press tab or enter  can generate html structure
+
+<div>tag can take one line
+
+css cascadingStyleSheets
+
+tag selecter
+<head>
+    <style>
+        <p>{
+             background-color: skyblue;
+        }
+    </style>
+</head>
+
+
+id selecter   use #
+#txt{ font-size:50px}
+
+class selecter  use .
+.cls{backgoroung-color:red;}
+
+
+
+vs code plug-in  live server can refresh automated
+--------------------------------------
+DOM= Document Object Model
+
+Query document:
+querySelector(selector)   :  get one DOM element, if there are many, only get the first one
+querySelectorAll(selector): get multiple DOM elements
+
+let title=Document.querySelector('#title'). // get the DOM element whose id is title
+let img= document.querySelector('#img') as HTMLImageElement; //img is set to html image type
+img.src='';  
+console.dir(img) // get all properties of img
+
+document.title='ts title'
+
+let list=document.querySelectorAll('.a');
+console.log(list)
+list.forEach(function(item,index){
+    let p=item as HTMLParagraphElement;
+    p.innerText='['+index+']'+p.innerText;
+    console.log(p,index)
+
+    -------------------------
+operate DOM style
+two ways:
+1.
+dom.style property
+read: dom.style.styleName
+set: dom.style.styleName=styleValue
+
+dom.style.fontSize='30px'
+dom.style.display='none'
+
+2.dom.classList property
+
+add classname
+dom.classList.add(classname1,classname2)
+<p class="a"></p>
+document.classList.add('b','c')  // <p class="a b c"></p>
+
+remove classname
+dom.classList.remove(classname1,classname2)
+
+juege classname is exist or not    return true or false
+let isExist=dom.classList.contains(classname)
+--------------------------------------------------------
+2020.10.31
+operate event
+
+
