@@ -460,7 +460,90 @@ for(let count:number =1;count<5;count++){
 if counter=1, then console.log, and then, count++
 
 breakpoint debugging 
+----------------------------------------------------------------------------------
+2020.10.30  3.26 pm
+
+break and continue
+------------------------------
+break: let loop end early
+for(let i:number=1; i<=5;i++){
+    if(i===3){
+        break;
+    }
+    console.log('eating the ' + i + ' steam bun');
+}
+eating the 1steam bun
+eating the 2steam bun
+
+-----------------------------
+continue: jump out this loop and continue the next loop
+
+for(let i:number=1; i<=5;i++){
+    if(i===3){
+        continue;
+    }
+    console.log('eating the ' + i + ' steam bun');
+}
+eating the 1 steam bun
+eating the 2 steam bun
+eating the 4 steam bun
+eating the 5 steam bun
+----------------------------------------------------------
+array
+
+two ways to create array:  first one is recommended 
+first way(recommended):
+let names:string[]=[];
+let names:string[]=['Felix','Sherry','Bob','Sue'];
+second way:
+let names:string[]=new Array();
+let names2:string[]=new Array('Felix','Sherry','Bob','Sue');
+
+length of array: names.length
+index of array starts from 0
+
+get the value from array:   names[0], names[1]
+
+modify one value of array:
+1. get the value  2. modify the value.
+arrayName[index]=new value;
+names[0]='Eric';      --->names[]-->['Eric','Sherry','Bob','Sue']
+
+add a new value for array
+arrayName[arrayName.length]=new value
+names[length]='Jack'     //['Eric','Sherry','Bob','Sue','Jack']
+
+iterate through array: for loop
+for(let i:number=0;i<names.length;i++){
+    console.log(names[i]);
+}
+
+Practise:
+add the elements which are not 0 to a new array.
+
+let nums:number[]=[200,30,3,212,0,34,0,3];
+let newNums:number[]=[];
+for(let i:number=0;i<nums.length;i++){
+    if(nums[i]!==0){
+        newNums[newNums.length]=nums[i];
+    }
+}
+console.log(newNums);
+
+--------------------------------------------------
+function
 
 
+function calculate(nums:number[]):number{
+let sum:number=0;
+for(let i:number=0;i<nums.length;i++){
+    sum=sum+nums[i];
+}
+return sum;
+}
+
+let numArr:number[]=[4,8,9,15];
+let sum:number=calculate(numArr);
+console.log(sum)
 
 
