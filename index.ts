@@ -1,9 +1,11 @@
 document.title='ts title'
 
-let list=document.querySelectorAll('.a');
-console.log(list)
-list.forEach(function(item,index){
-    let p=item as HTMLParagraphElement;
-    p.innerText='['+index+']'+p.innerText;
-    console.log(p,index)
+let btn=document.querySelector('#btn') as HTMLButtonElement;
+btn.addEventListener('click',function(event){
+    let target=event.target as HTMLButtonElement;
+    target.style.fontSize='30px'
+})
+
+btn.addEventListener('mouseenter',function(){
+    console.log('I am mouseentered');
 })
