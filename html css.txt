@@ -71,4 +71,48 @@ let isExist=dom.classList.contains(classname)
 2020.10.31
 operate event
 
+addEventListener : add event for DOM
+
+dom.addEventListener(eventName,eventHandle)   eventhandle:callback function
+
+btn.addEventListener('click',function(){
+    console.log('mouse click event triggled')
+})
+
+event object (event)
+let btn=document.querySelector('#btn') as HTMLButtonElement;
+btn.addEventListener('click',function(event){
+    let target=event.target as HTMLButtonElement;
+    target.style.fontSize='30px'
+})
+
+
+removeEventListener
+dom.addEventListener(eventName,eventHandle)   eventhandle:callback function
+dom.addEventListener(eventName,eventHandle,{once:true})// only trigger once
+
+// add and remove must have the same callback function
+function handleClick(){}
+btn.addEventListener('click',handleClick)
+btn.removeEventListener('click',handleClick)
+
+the following way ,can not remove:
+btn.addEventListener('click',function(){})
+btn.removeEventListener('click',function(){})
+
+
+event remove successful example:
+function handleClick(){
+    console.log('click me to try again');
+}
+let btn=document.querySelector('#btn') as HTMLButtonElement;
+btn.addEventListener('click',handleClick)
+
+let remove=document.querySelector('#remove') as HTMLButtonElement;
+remove.addEventListener("click",function(){
+    btn.removeEventListener('click',handleClick)
+    console.log('remove successfully');
+})
+
+
 
